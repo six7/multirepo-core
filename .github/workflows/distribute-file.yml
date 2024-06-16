@@ -22,3 +22,5 @@ jobs:
         destination-username: 'six7'
         destination-repository: 'multirepo-theme'
         destination-directory: 'tokens/core'
+        commit-email: 'six.jan@gmail.com'
+
