@@ -5,7 +5,7 @@ on:
     branches: 
       - main
     paths:
-      - 'tokens/*'
+      - 'tokens/core/*'
 
 jobs:
   copy_files_to_theme_project: 
