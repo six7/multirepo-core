@@ -22,6 +22,7 @@ jobs:
         source_folder: 'tokens'
         destination_repo: 'six7/multirepo-theme'
         destination_folder: 'tokens/core'
+        destination_branch: 'main'
         user_email: 'six.jan@gmail.com'
         user_name: 'six7'
         commit_msg: 'Update core files'
