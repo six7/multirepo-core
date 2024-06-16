@@ -1,0 +1,34 @@
+name: Copy updated OpenAPI file
+
+# only run this workflow when the openapi file has changed on the master branch
+on: 
+  push:
+    branches: 
+      - main
+    paths:
+      - 'tokens/*'
+
+jobs:
+  copy_files_to_theme_project: 
+    runs-on: ubuntu-latest
+    steps:
+    # check out the current repo
+    - name: Check out current repo
+      uses: actions/checkout@v3
+    # check out the theme repo
+    - name: Check out theme project
+      uses: actions/checkout@v3
+      with:
+        repository: six7/multirepo-theme
+        path: ./tokens
+        token: ${{ secrets.PAT_TOKEN }}
+    - name: Push tokens to another repository
+      uses: nkoppel/push-files-to-another-repository@v1.1.3
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_GITHUB_TOKEN }}
+      with:
+        source-files: 'tokens/'
+        destination-branch: 'main'
+        destination-username: 'six7'
+        destination-repository: 'multirepo-theme'
+        destination-directory: 'tokens/core'
