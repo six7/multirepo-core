@@ -19,7 +19,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_GITHUB_TOKEN }}
       with:
-        source_folder: 'tokens'
+        source_folder: 'tokens/core'
         destination_repo: 'six7/multirepo-theme'
         destination_folder: 'tokens/core'
         destination_branch: 'main'
